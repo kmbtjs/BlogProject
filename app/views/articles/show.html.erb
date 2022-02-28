@@ -1,14 +1,39 @@
-<h1><%= @article.title %></h1>
-<p><%= @article.body %></p><br>
-<%= link_to "Edit Article", edit_article_path(@article) %><br>
-<%= link_to "Delete Article", article_path(@article), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you Sure?"
-    } %><br>
-<%= link_to "Back to Articles", articles_path %>
+<div class="flex flex-col">
+<section>
+        <div class="p-3">
+        <div class="mb-2"> Article Title:
+            <%= @article.title %>
+        </div>
+        <div class="mb-3"> Article Body:
+            <%= @article.body %></p>
+        </div>
+        </div>
+        <div class="flex flex-row">
+            <button class="bg-gray-500 hover:bg-gray-600 
+                        focus:outline-none focus:ring focus:ring-gray-300 
+                        rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3">
+                        <%= link_to "Edit Article", edit_article_path(@article) %></button>
+            <button class="bg-gray-500 hover:bg-gray-600 
+                        focus:outline-none focus:ring focus:ring-gray-300 
+                        rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3">
+                        <%= link_to "Delete Article", article_path(@article), data: {
+                                                turbo_method: :delete,
+                                                turbo_confirm: "Are you Sure?"} %></button>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+            <button class="bg-gray-500 hover:bg-gray-600 
+                        focus:outline-none focus:ring focus:ring-gray-300 
+                        rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3">
+                        <%= link_to "Back to Articles", articles_path %></button>
+        </div>
+</section>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<section>
+<div class="pt-3 ml-3">
+    <div class="text-3xl font-bold pt-3 ml-3">Comments</div>
+    <div class=""><%= render @article.comments %></div>
+</div>
+<div class="flex flex-col">
+    <%= render 'comments/form' %>
+</div>
+</section>
+</div>

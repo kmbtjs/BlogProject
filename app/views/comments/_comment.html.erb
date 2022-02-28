@@ -1,18 +1,19 @@
-<% unless comment.archived? %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
+<div class="">
+  <% unless comment.archived? %>
+    <div class="">
+      Commenter: <%= comment.commenter %>
+    </div>
 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-  <p>
-  <%= link_to "Delete Comment", [comment.article, comment], data: {
-                turbo_method: :delete,
-                turbo_confirm: "Are you sure?"
-              } %>
-  </p>
-<% end %>
-<hr>
+    <div class="mb-3">
+      Comment: <%= comment.body %>
+    </div>
+    </div>
+<button class="bg-gray-500 hover:bg-gray-600 
+              focus:outline-none focus:ring focus:ring-gray-300 
+              rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3">
+<%= link_to "Delete Comment", [comment.article, comment], data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } %>
+<button>
+  <% end %>

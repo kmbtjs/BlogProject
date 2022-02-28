@@ -1,20 +1,25 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-    <p>
-      <%= form.label :commenter %><br>
-      <%= form.text_field :commenter %>
-    </p>
-    <p>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-    </p>
-    <p>
-      <%= form.label :status %><br>
-      <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-    </p>
+<div class="relative text-gray-800 ml-3 mt-12 flex flex-col">
+  <h2>Add a comment:</h2>
+  <%= form_with model: [ @article, @article.comments.build ] do |form| %>
+    <div class="p-3">
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </div>
+  <div class="p-3">
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+  <div class="p-3">
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
 
 
-    <p>
-      <%= form.submit %>
-    </p>
-<% end %>
+  <div>
+  <button class="bg-gray-500 hover:bg-gray-600 
+  focus:outline-none focus:ring focus:ring-gray-300 
+  rounded-full text-m text-gray-100 ml-2 p-2.5 px-3">
+    <%= form.submit %></button>
+  <% end %>
+</div>
   

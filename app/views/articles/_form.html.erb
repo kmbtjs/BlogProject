@@ -1,29 +1,38 @@
-<%= form_with model: article do |form| %>
-    <div>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-      <% article.errors.full_messages_for(:title).each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
-  
-    <div>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %><br>
-      <% article.errors.full_messages_for(:body).each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
+<div class="relative text-gray-800 ml-2 mt-12">
+  <%= form_with model: article do |form| %>
+      <div class="p-3">
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+        <% article.errors.full_messages_for(:title).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    
+      <div class="p-3">
+        <%= form.label :body %><br>
+        <%= form.text_area :body %><br>
+        <% article.errors.full_messages_for(:body).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
 
-    <div>
-      <%= form.label :status %><br>
-      <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-    </div>
+      <div class="p-3">
+        <%= form.label :status %>
+        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+      </div><br>
 
-  
-    <div>
-      <%= form.submit %>
+    <div class="flex flex-row">
+      <button class="bg-gray-500 hover:bg-gray-600 
+      focus:outline-none focus:ring focus:ring-gray-300 
+      rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3">
+        <%= form.submit %>
+      </button>
+    <% end %><br>
+      <button class="bg-gray-500 hover:bg-gray-600 
+      focus:outline-none focus:ring focus:ring-gray-300 
+      rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3">
+      <%= link_to "Back to Articles", articles_path %>
+      </button>
     </div>
-  <% end %><br>
-  <%= link_to "Back to Articles", articles_path %>
+</div>
   
