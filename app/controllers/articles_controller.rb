@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
   http_basic_authenticate_with name: "kmbtjs", password: "secretpass", except: [:index, :show]
 
+
   def index
     @articles = Article.all
   end
@@ -41,6 +42,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path, status: :see_other
+  end
+
+  def bulk_destroy
+    Article.where(id: params[:collection_ids]).destroy_all
   end
 
   private
