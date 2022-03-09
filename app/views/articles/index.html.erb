@@ -19,13 +19,11 @@
                 <% end %>
             </ul>
         </div>
+        
         <div class="flex flex-row">
-        <div class="bg-gray-500 hover:bg-gray-600 
-        focus-outline-none focus:ring focus:ring-gray-300 
-        rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3">
-    <%= link_to "Delete Articles", articles_path, data: {
-                          turbo_method: :delete,
-                          turbo_confirm: "Are you Sure?"} %><%= form.submit %></div>
+        <div><%= form.button "Delete Articles", type: :submit, class: :"bg-gray-500 hover:bg-gray-600 
+                                focus-outline-none focus:ring focus:ring-gray-300 
+                                rounded-full text-m text-gray-100 ml-1.5 p-2.5 px-3" %></div>
         <% end %>
         <div>
         <button class="bg-gray-500 hover:bg-gray-600 

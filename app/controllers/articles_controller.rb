@@ -46,6 +46,7 @@ class ArticlesController < ApplicationController
 
   def bulk_destroy
     Article.where(id: params[:collection_ids]).destroy_all
+    redirect_to articles_path, status: :see_other
   end
 
   private

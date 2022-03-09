@@ -22,9 +22,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
   <div class="flex flex-row justify-between">
-  <div class="actions bg-gray-500 hover:bg-gray-600 
-              focus:outline-none focus:ring focus:ring-gray-300 
-              rounded-full text-m text-gray-100 ml-1.5 mb-2 p-2.5 px-3"><%= f.submit "Sign up" %></div>
+  <div class="actions"><%= f.button "Sign up", type: :submit, class: :"bg-gray-500 hover:bg-gray-600 
+  focus:outline-none focus:ring focus:ring-gray-300 
+  rounded-full text-m text-gray-100 ml-1.5 mb-2 p-2.5 px-0.5" %></div>
   <% end %>
 
   <div class="flex flex-row"><%= render "devise/shared/links" %></div>
